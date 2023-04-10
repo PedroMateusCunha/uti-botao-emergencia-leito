@@ -11,4 +11,7 @@ class BotaoDeEmergencia:
         return {"message": "Botão de emergência desligado com sucesso"}
     
     def get_status(self):
-        return {"ligado": self.ligado}
+        return { "botao_emergencia": {
+                "ligado": self.ligado
+            }
+        }
