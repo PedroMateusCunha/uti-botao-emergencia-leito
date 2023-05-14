@@ -2,7 +2,7 @@
 Modulo para inicialização e disponilibilização do serviço
 relacionado à bomba de infusão de medicamentos.
 """
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from botao_emergencia import BotaoDeEmergencia
 
 app = FastAPI()
