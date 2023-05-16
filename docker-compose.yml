@@ -3,15 +3,13 @@ services:
       container_name: ${APP_NAME:-botao_emergencia}-${ENV_NAME:-dev}
       image: ${APP_NAME:-botao_emergencia}:${ENV_NAME:-dev}
       build:
-        context: ./botao_emergencia
-        dockerfile: ./Dockerfile
+        context: .
+        dockerfile: ./botao_emergencia/Dockerfile
         args:
           APP_NAME: ${APP_NAME:-botao_emergencia}
           ENV_NAME: ${ENV_NAME:-dev}
       ports:
         - "${SINAIS_VITAIS_PORT:-7005}:8000"
-      volumes:
-        - ./botao_emergencia:/usr/app
       restart: unless-stopped
       healthcheck:
         test: ["CMD-SHELL", "curl -f http://localhost:${BACKEND_PORT:-7005}/health || exit 1"]

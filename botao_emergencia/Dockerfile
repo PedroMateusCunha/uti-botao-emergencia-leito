@@ -14,6 +14,8 @@ WORKDIR $USER_HOME
 COPY . .
 
 RUN python3 -m pip install --upgrade pip && \
-    pip install -r ${USER_HOME}/requirements/requirements.${ENV_NAME}.txt
+    pip install -r ${USER_HOME}/botao_emergencia/requirements/requirements.${ENV_NAME}.txt
+
+WORKDIR ${USER_HOME}/botao_emergencia/
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000","--reload"]
