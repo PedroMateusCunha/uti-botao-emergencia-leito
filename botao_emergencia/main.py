@@ -8,6 +8,10 @@ botao_emergencia = BotaoDeEmergencia()
 def read_root():
     return {"message": "botao_emergencia"}
 
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
 @app.get("/status")
 def check_status():
     return botao_emergencia.get_status()
